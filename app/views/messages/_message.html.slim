@@ -1,4 +1,8 @@
 - cache message do
-  .message
-    p
-      = message.content
+  .message_row
+    .message class=("mine" if current_user.id == message.user.id)
+      span
+        i.material-icons person
+        = message.user.email
+      p
+        = message.content

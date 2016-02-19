@@ -31,6 +31,7 @@ gem "slim-rails"
 
 # Use Bower to manage your frontend assets
 gem 'bower-rails'
+gem 'bourbon'
 
 ########## MATERIALIZE
 gem 'materialize-sass'
