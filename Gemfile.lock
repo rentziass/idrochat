@@ -1,3 +1,14 @@
+GIT
+  remote: https://github.com/plataformatec/devise.git
+  revision: 342304375946ca11608516eae80f78dbaae059d5
+  specs:
+    devise (4.0.0.rc1)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 4.1.0, < 5.1)
+      responders
+      warden (~> 1.2.3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -42,12 +53,14 @@ GEM
       tzinfo (~> 1.1)
     arel (7.0.0)
     ast (2.2.0)
+    bcrypt (3.1.10)
     better_errors (2.1.1)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
       rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bower-rails (0.10.0)
     builder (3.2.2)
     byebug (8.2.2)
     choice (0.2.0)
@@ -121,6 +134,7 @@ GEM
     notiffany (0.0.8)
       nenv (~> 0.1)
       shellany (~> 0.0)
+    orm_adapter (0.5.0)
     parser (2.3.0.6)
       ast (~> 2.2)
     pg (0.18.4)
@@ -173,6 +187,8 @@ GEM
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
     redis (3.2.2)
+    responders (2.1.1)
+      railties (>= 4.2.0, < 5.1)
     rubocop (0.37.2)
       parser (>= 2.3.0.4, < 3.0)
       powerpack (~> 0.1)
@@ -219,6 +235,8 @@ GEM
       execjs (>= 0.3.0)
       json (>= 1.8.0)
     unicode-display_width (0.3.1)
+    warden (1.2.6)
+      rack (>= 1.0)
     websocket-driver (0.6.3)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
@@ -229,9 +247,11 @@ PLATFORMS
 DEPENDENCIES
   better_errors
   binding_of_caller
+  bower-rails
   byebug
   coffee-rails (~> 4.1.0)
-  guard (>= 2.2.2)
+  devise!
+  guard
   guard-livereload
   guard-rubocop
   jbuilder (~> 2.0)

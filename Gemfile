@@ -29,11 +29,13 @@ gem 'redis', '~> 3.0'
 # gem 'bcrypt', '~> 3.1.7'
 gem "slim-rails"
 
+# Use Bower to manage your frontend assets
+gem 'bower-rails'
+
 ########## MATERIALIZE
 gem 'materialize-sass'
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+gem 'devise', git: "https://github.com/plataformatec/devise.git"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -64,7 +66,7 @@ group :development do
 
   ########## FRONTEND
   ################# GUARD LIVERELOAD
-  gem "guard", ">= 2.2.2",       :require => false
+  gem "guard",       :require => false
   gem "guard-livereload",        :require => false
   gem "guard-rubocop"
   gem "rack-livereload"
