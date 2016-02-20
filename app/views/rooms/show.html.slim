@@ -3,7 +3,13 @@ h1 Chat room
 #messages
   = render @messages
 
+p.typing
+
 form
   label Say something
   input type="text" data-behavior="room_speaker"
   input#user_id type="hidden" name="user_id" value="#{current_user.id}"
+
+javascript:
+  window.current_user_id = "#{current_user.id}"
+  window.current_user = "#{current_user.username}"

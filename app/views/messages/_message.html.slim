@@ -3,6 +3,6 @@
     .message class=("mine" if current_user.id == message.user.id)
       span
         i.material-icons person
-        = message.user.email
+        = message.user.username
       p
         = message.content
