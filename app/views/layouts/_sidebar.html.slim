@@ -2,114 +2,14 @@ ul#slide-out.side-nav.fixed.side_menu
   a.idrochat_logo href=root_path
     img src="http://orig06.deviantart.net/b6ff/f/2014/100/5/9/squirtle_by_mighty355-d7dwh31.png"
 
-  / // Calcio reale
-  / li.no-padding
-  /   ul.collapsible.collapsible-accordion data-collapsible="accordion"
-  /     li
-  /       a.collapsible-header
-  /         = t(".real_football.title")
-  /         i.material-icons people
-  /       .collapsible-body
-  /         ul
-  /           li
-  /             a href=admin_leagues_path
-  /               = t(".real_football.leagues")
-  /           li
-  /             a href=admin_teams_path
-  /               = t(".real_football.league_teams")
-  /           li
-  /             a href=admin_players_path
-  /               = t(".real_football.players")
-  /           li
-  /             a href=admin_transfers_path
-  /               = t(".real_football.transfers")
+  - if current_user
+    // Ricerca
+    li.search
+      input(id="search" placeholder="Ricerca..." data-behavior="user_search")
+      #search_results
 
-  / // Coppe
-  / li.no-padding
-  /   ul.collapsible.collapsible-accordion
-  /     li
-  /       a.collapsible-header
-  /         = t(".cups.title")
-  /         i.material-icons star_rate
-  /       .collapsible-body
-  /         ul
-  /           li
-  /             a href=admin_cups_path
-  /               = t(".cups.cups")
-  /           li
-  /             a href=admin_cup_formats_path
-  /               = t(".cups.cup_formats")
-  /           li
-  /             a href=admin_cup_prizes_path
-  /               = t(".cups.cup_prizes")
-  /           li
-  /             a href=admin_coin_prizes_path
-  /               = t(".cups.coin_prizes")
-
-  / // Gestione utenti
-  / li.no-padding
-  /   ul.collapsible.collapsible-accordion
-  /     li
-  /       a.collapsible-header
-  /         = t(".user_management.title")
-  /         i.material-icons person
-  /       .collapsible-body
-  /         ul
-  /           li
-  /             a href=admin_users_path
-  /               = t(".user_management.users")
-  /           li
-  /             a href=admin_prize_winners_path
-  /               = t(".user_management.prize_winners")
-  /           li
-  /             a href=admin_downloads_path
-  /               = t(".user_management.downloads")
-
-  / // Feed
-  / li.no-padding
-  /   ul.collapsible.collapsible-accordion
-  /     li
-  /       a.collapsible-header href=admin_feeds_path
-  /         = t(".feeds.title")
-  /         i.material-icons sms
-
-  / // Tutorial
-  / li.no-padding
-  /   ul.collapsible.collapsible-accordion
-  /     li
-  /       a.collapsible-header href=admin_tutorials_path
-  /         = t(".tutorials.title")
-  /         i.material-icons help_outline
-
-  / // Tutorial
-  / li.no-padding
-  /   ul.collapsible.collapsible-accordion
-  /     li
-  /       a.collapsible-header href=admin_logged_home_pages_path
-  /         = t(".home_pages.title")
-  /         i.material-icons view_compact
-
-  / // Pacchetti Coin
-  / li.no-padding
-  /   ul.collapsible.collapsible-accordion
-  /     li
-  /       a.collapsible-header href=admin_coin_products_path
-  /         = t(".coin_products.title")
-  /         i.material-icons attach_money
-
-  / // Coupon
-  / li.no-padding
-  /   ul.collapsible.collapsible-accordion
-  /     li
-  /       a.collapsible-header href=admin_coupons_path
-  /         = t(".coupons.title")
-  /         i.material-icons account_balance_wallet
-
-  / // Colori
-  / - if current_admin_user.is_father?
-  /   li.no-padding
-  /     ul.collapsible.collapsible-accordion
-  /       li
-  /         a.collapsible-header href=admin_colors_path
-  /           = t(".colors.title")
-  /           i.material-icons color_lens
+    li
+      = link_to "Generale", room_path(Room.GENERAL)
+    - current_user.rooms_without_general.each do |room|
+      li
+        = link_to room.display_name(current_user), room_path(room)

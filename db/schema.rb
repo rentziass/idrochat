@@ -11,28 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160307152733) do
+ActiveRecord::Schema.define(version: 20160307171454) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "chat_users", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "private_chat_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.index ["private_chat_id"], name: "index_chat_users_on_private_chat_id", using: :btree
-    t.index ["user_id"], name: "index_chat_users_on_user_id", using: :btree
-  end
 
   create_table "messages", force: :cascade do |t|
     t.text     "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
+    t.integer  "room_id"
   end
 
-  create_table "private_chats", force: :cascade do |t|
+  create_table "room_partecipants", force: :cascade do |t|
+    t.integer  "room_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_room_partecipants_on_room_id", using: :btree
+    t.index ["user_id"], name: "index_room_partecipants_on_user_id", using: :btree
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

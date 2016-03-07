@@ -7,10 +7,19 @@ class User < ApplicationRecord
   searchkick
 
   has_many :messages
-  has_many :chat_users
-  has_many :private_chats, through: :chat_users
+  has_many :room_partecipants
+  has_many :rooms, through: :room_partecipants
 
   validates :username, uniqueness: true
+  after_create :add_to_general_chat
+
+  def add_to_general_chat
+    Room.GENERAL.partecipants << self
+  end
+
+  def rooms_without_general
+    rooms - [Room.GENERAL]
+  end
 
   def email_required?
     false
