@@ -12,13 +12,9 @@ App.room = App.cable.subscriptions.create "RoomChannel",
         $html.find(".message").addClass("mine")
       $("#messages").append $html
     if data['new_typer']
-      console.log "new_typer:"
-      console.log data['new_typer']
       unless data['new_typer'] is window.current_user
         $("p.typing").html(data['new_typer'] + " sta scrivendo...")
     if data['old_typer']
-      console.log "old_typer:"
-      console.log data['old_typer']
       unless data['old_typer'] is window.current_user
         $("p.typing").html("")
 
@@ -34,7 +30,6 @@ App.room = App.cable.subscriptions.create "RoomChannel",
 $(document).on 'keypress', '[data-behavior~=room_speaker]', (event) ->
   if event.keyCode is 13
     App.room.speak event.target.value, $("#user_id").val()
-    # App.room.started_typing(window.current_user)
     event.target.value = ""
     event.preventDefault()
 
