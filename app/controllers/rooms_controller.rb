@@ -4,11 +4,13 @@ class RoomsController < ApplicationController
   def show
     @room = Room.includes(:messages).find params[:id]
     @messages = @room.messages
+    reset_unseen_count
   end
 
   def general
     @room = Room.includes(:messages).GENERAL
     @messages = @room.messages
+    reset_unseen_count
     render :show
   end
 
@@ -26,5 +28,10 @@ class RoomsController < ApplicationController
         redirect_to room_path(room), notice: "Inizia ora a chattare con #{searched_user.username}!"
       end
     end
+  end
+
+  private
+  def reset_unseen_count
+    @room.room_partecipants.find_by(user_id: current_user.id).update unseen_count: 0
   end
 end

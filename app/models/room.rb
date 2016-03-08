@@ -15,4 +15,10 @@ class Room < ApplicationRecord
   def display_title(current_user)
     name || ("Chat con " << (partecipants - [current_user]).map(&:username).to_sentence)
   end
+
+  def unseen_count_by(current_user)
+    count = room_partecipants.find_by(user_id: current_user.id).unseen_count
+    return count if count > 0
+    ""
+  end
 end

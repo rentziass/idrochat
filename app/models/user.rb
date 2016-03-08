@@ -18,7 +18,7 @@ class User < ApplicationRecord
   end
 
   def rooms_without_general
-    rooms - [Room.GENERAL]
+    rooms.includes(:messages).where.not(id: Room.GENERAL.id).order("messages.created_at DESC")
   end
 
   def email_required?

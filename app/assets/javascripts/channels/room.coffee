@@ -32,6 +32,9 @@ ready = ->
     if event.keyCode is 13
       App.room.speak event.target.value, $("#user_id").val(), window.room_id
       event.target.value = ""
+      li = $("a.room_link[data-room-id=" + window.room_id + "]").parent()
+      $(li).detach()
+      $("ul#room_list").prepend(li)
       event.preventDefault()
 
   typingTimer = undefined

@@ -10,6 +10,12 @@ ul#slide-out.side-nav.fixed.side_menu
 
     li
       = link_to "Generale", room_path(Room.GENERAL)
-    - current_user.rooms_without_general.each do |room|
-      li
-        = link_to room.display_name(current_user), room_path(room), data: { room_id: room.id }, class: "room_link"
+    ul#room_list
+      - current_user.rooms_without_general.each do |room|
+        li
+          = link_to room_path(room), data: { room_id: room.id }, class: "room_link"
+            span
+              = room.display_name(current_user)
+            span.unseen_count
+              = room.unseen_count_by(current_user)
+/room.display_name(current_user)
