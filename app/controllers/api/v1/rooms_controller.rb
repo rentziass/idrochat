@@ -24,7 +24,9 @@ class Api::V1::RoomsController < ApplicationController
     current_user = User.find params[:current_user_id]
     puts params.inspect.to_s
     room = Room.find params[:id]
-    room.partecipants << user
+    # room.partecipants << user
+    RoomPartecipant.create room_id: room.id, user_id: params[:user_id], inviter_id: params[:current_user_id]
+    room.create_hidden_message
     render json: {
       msg: "Aggiunto utente alla chat: #{user.username}",
       display_name: room.display_name(current_user),

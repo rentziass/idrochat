@@ -3,13 +3,13 @@ class RoomsController < ApplicationController
 
   def show
     @room = Room.includes(:messages).find params[:id]
-    @messages = @room.messages
+    @messages = @room.messages.visible
     reset_unseen_count
   end
 
   def general
     @room = Room.includes(:messages).GENERAL
-    @messages = @room.messages
+    @messages = @room.messages.visible
     reset_unseen_count
     render :show
   end

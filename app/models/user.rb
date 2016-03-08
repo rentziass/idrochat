@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :messages
   has_many :room_partecipants
   has_many :rooms, through: :room_partecipants
+  has_many :invited_room_partecipants, foreign_key: "inviter_id", class_name: "RoomPartecipant"
 
   validates :username, uniqueness: true
   after_create :add_to_general_chat

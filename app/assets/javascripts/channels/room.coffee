@@ -32,9 +32,7 @@ ready = ->
     if event.keyCode is 13
       App.room.speak event.target.value, $("#user_id").val(), window.room_id
       event.target.value = ""
-      li = $("a.room_link[data-room-id=" + window.room_id + "]").parent()
-      $(li).detach()
-      $("ul#room_list").prepend(li)
+      moveRoomToTop(window.room_id)
       event.preventDefault()
 
   typingTimer = undefined
@@ -96,8 +94,14 @@ ready = ->
           $("h1.room_title").html data.display_title
           input.value = ""
           Materialize.toast(data.msg, 4000)
+          moveRoomToTop(window.room_id)
       )
     )
+
+  moveRoomToTop = (room_id) ->
+    li = $("a.room_link[data-room-id=" + room_id + "]").parent()
+    $(li).detach()
+    $("ul#room_list").prepend(li)
 
 $(document).ready ->
   if window.chat_room_page
