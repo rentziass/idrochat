@@ -10,5 +10,6 @@ module Idrochat
   class Application < Rails::Application
     # Include bower components in the assets pipeline (including bootstrap fonts)
     config.assets.paths << Rails.root.join("vendor","assets","bower_components")
+    config.i18n.default_locale = :it
   end
 end

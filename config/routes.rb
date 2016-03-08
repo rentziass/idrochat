@@ -16,6 +16,12 @@ Rails.application.routes.draw do
           get "search", to: "users#search"
         end
       end
+      resources :rooms, only: [] do
+        member do
+          get "search_user_to_add", to: "rooms#search_user_to_add", as: "search_user_to_add"
+          post "add_user", to: "rooms#add_user"
+        end
+      end
     end
   end
 

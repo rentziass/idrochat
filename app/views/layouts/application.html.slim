@@ -5,8 +5,10 @@ html
       | Idrochat
     = csrf_meta_tags
     = action_cable_meta_tag
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    /= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag    'application', media: 'all'
+    /= javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application'
     link[href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet"]
     link[href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"]
     style
@@ -21,7 +23,7 @@ html
       javascript:
         Materialize.toast("#{alert}", 4000)
     = render 'layouts/sidebar'
-    a.button-collapse data-activates="slide-out" href="#" 
+    a.button-collapse data-activates="slide-out" href="#"
       i.mdi-navigation-menu
 
   main

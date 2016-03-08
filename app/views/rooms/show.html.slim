@@ -1,4 +1,11 @@
-h1 Chat room
+h1.room_title
+  = @room.display_title(current_user)
+
+- unless @room == Room.GENERAL
+  .row
+    li.search.add_user.col.s3
+      input(id="search_user_to_add" placeholder="Aggiungi un partecipante" data-behavior="search_user_to_add")
+      #search_user_to_add_results
 
 #messages
   = render @messages
@@ -14,3 +21,4 @@ javascript:
   window.current_user_id = "#{current_user.id}"
   window.current_user = "#{current_user.username}"
   window.room_id = "#{@room.id}"
+  window.chat_room_page = true

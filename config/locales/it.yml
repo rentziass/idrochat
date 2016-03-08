@@ -1,0 +1,505 @@
+it:
+  devise_token_auth:
+    sessions:
+      bad_credentials: "Credenziali di login errate."
+
+  number:
+    format:
+      delimiter: "."
+      precision: 2
+      significant: false
+      strip_insignificant_zeros: true
+      separator: ","
+
+    currency:
+      format:
+        format: "%u %n"
+        unit: "€"
+        separator: ","
+        delimiter: "."
+        precision: 2
+        significant: false
+        strip_insignificant_zeros: false
+
+    percentage:
+      format:
+        delimiter: ""
+        # precision:
+
+    precision:
+      format:
+        # separator:
+        delimiter: ""
+        # precision:
+
+    human:
+      format:
+        separator: ","
+        delimiter: "."
+        precision: 2
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one:   "Byte"
+            other: "Byte"
+          kb: "Kb"
+          mb: "Mb"
+          gb: "Gb"
+          tb: "Tb"
+      decimal_units:
+        format: "%n %u"
+        units:
+          unit: ""
+          thousand: "Mila"
+          million: "Milioni"
+          billion: "Miliardi"
+          trillion: "Bilioni"
+          quadrillion: "Biliardi"
+
+  date:
+    formats:
+      default: "%d-%m-%Y"
+      short: "%a %d %b"
+      full_short: "%d %b %Y"
+      long: "%d %B %Y"
+
+    day_names:
+      - domenica
+      - lunedì
+      - martedì
+      - mercoledì
+      - giovedì
+      - venerdì
+      - sabato
+    abbr_day_names:
+      - Dom
+      - Lun
+      - Mar
+      - Mer
+      - Gio
+      - Ven
+      - Sab
+
+    month_names:
+      - ~
+      - gennaio
+      - febbraio
+      - marzo
+      - aprile
+      - maggio
+      - giugno
+      - luglio
+      - agosto
+      - settembre
+      - ottobre
+      - novembre
+      - dicembre
+    abbr_month_names:
+      - ~
+      - Gen
+      - Feb
+      - Mar
+      - Apr
+      - Mag
+      - Giu
+      - Lug
+      - Ago
+      - Set
+      - Ott
+      - Nov
+      - Dic
+    order:
+      - :day
+      - :month
+      - :year
+
+  time:
+    formats:
+      default: "%a %d %b %Y, %H:%M:%S %z"
+      short: "%a %d %b %H:%M"
+      day_month: "%d %b"
+      full_short: "%d %b %Y"
+      long: "%d %B %Y %H:%M"
+      input: "%d-%m-%Y"
+    am: 'am'
+    pm: 'pm'
+
+  datetime:
+    distance_in_words:
+      half_a_minute: "mezzo minuto"
+      less_than_x_seconds:
+        one:  "meno di un secondo"
+        other: "meno di %{count} secondi"
+      x_seconds:
+        one:  "1 secondo"
+        other: "%{count} secondi"
+      less_than_x_minutes:
+        one:  "meno di un minuto"
+        other: "meno di %{count} minuti"
+      x_minutes:
+        one:  "1 minuto"
+        other: "%{count} minuti"
+      about_x_hours:
+        one:  "circa un'ora"
+        other: "circa %{count} ore"
+      x_days:
+        one:  "1 giorno"
+        other: "%{count} giorni"
+      about_x_months:
+        one:  "circa un mese"
+        other: "circa %{count} mesi"
+      x_months:
+        one:  "1 mese"
+        other: "%{count} mesi"
+      about_x_years:
+        one:  "circa un anno"
+        other: "circa %{count} anni"
+      over_x_years:
+        one:  "oltre un anno"
+        other: "oltre %{count} anni"
+      almost_x_years:
+        one:   "circa 1 anno"
+        other: "circa %{count} anni"
+    prompts:
+      year:   "Anno"
+      month:  "Mese"
+      day:    "Giorno"
+      hour:   "Ora"
+      minute: "Minuto"
+      second: "Secondi"
+
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " e "
+      last_word_connector: " e "
+
+    select:
+      prompt: "Per favore, seleziona"
+
+  helpers:
+    select:
+      prompt: "Per favore, seleziona"
+
+    submit:
+      create: 'Crea %{model}'
+      update: 'Aggiorna %{model}'
+      submit: 'Invia %{model}'
+
+  errors:
+    format: "%{attribute} %{message}"
+
+    messages: &errors_messages
+      inclusion: "non è incluso nella lista"
+      exclusion: "è riservato"
+      invalid: "non è valido"
+      confirmation: "non coincide con la conferma"
+      accepted: "deve essere accettata"
+      empty: "non può essere vuoto"
+      blank: "non può essere lasciato in bianco"
+      too_long:
+        one: "è troppo lungo (il massimo è 1 carattere)"
+        other: "è troppo lungo (il massimo è %{count} caratteri)"
+      too_short:
+        one:  "è troppo corto (il minimo è 1 carattere)"
+        other:  "è troppo corto (il minimo è %{count} caratteri)"
+      wrong_length:
+        one: "è della lunghezza sbagliata (deve essere di 1 carattere)"
+        other: "è della lunghezza sbagliata (deve essere di %{count} caratteri)"
+      not_a_number: "non è un numero"
+      not_an_integer: "non è un intero"
+      greater_than: "deve essere superiore a %{count}"
+      greater_than_or_equal_to: "deve essere superiore o uguale a %{count}"
+      equal_to: "deve essere uguale a %{count}"
+      less_than: "deve essere meno di %{count}"
+      less_than_or_equal_to: "deve essere meno o uguale a %{count}"
+      odd: "deve essere dispari"
+      even: "deve essere pari"
+      altezza: "deve essere maggiore di zero"
+
+      generic: "Si è verificato un errore nell'elaborazione della richiesta"
+      password_change_needed: "Per motivi di sicurezza è necessario cambiare password prima di accedere all'area riservata del sito"
+      paypal:
+        connection: "Si è verificato un errore durante la connessione a PayPal. Si prega di riprovare."
+        cancelled: "L'acquisto è stato cancellato da PayPal. Si prega di riprovare."
+
+    page_not_found:
+      title: "Ops, pagina non trovata!"
+      body_html: "<p>La pagina che stavi cercando non esiste oppure è stata spostata</p><p>La preghiamo di contattare il Servizio Clienti in caso di necessità</p>"
+
+  activerecord:
+
+    errors:
+      models:
+        football_user:
+          attributes:
+            fanta_user_id:
+              taken: "Un utente legato a questo FantaUser è già esistente"
+
+    models:
+
+      player:
+        one: "Giocatore"
+        other: "Giocatori"
+
+      cup:
+        one: "Coppa"
+        other: "Coppe"
+
+      cup_prize:
+        one: "Premio"
+        other: "Premi"
+
+      assigned_prize:
+        one: "Premio assegnato"
+        other: "Premi assegnati"
+
+      range_prize:
+        one: "Premio in range"
+        other: "Premi in range"
+
+    attributes:
+
+      admin_feed:
+        content: "Contenuto"
+        related_object_id: "Oggetto collegato (coppa)"
+        link_to_shop: "Collega allo shop"
+        to_all: "A tutti"
+        to_not_cup_signed: "Agli utenti che non hanno una squadra"
+        feed: "Feed (bacheca)"
+        push_notification: "Notifica Push"
+
+      player:
+        first_name: "Nome"
+        last_name: "Cognome"
+        role: "Ruolo"
+        value: "Valore"
+        birth_date: "Data di nascita"
+
+      cup:
+        name: "Nome"
+        description: "Descrizione"
+        short_description: "Descrizione breve"
+        duration: "Durata (in giornate)"
+        starting_date: "Data di inizio"
+        league_id: "Lega"
+        price: "Prezzo"
+        cup_prize_id: "Premio"
+        subscription_days: "Durata periodo di iscrizione (giorni)"
+        open_subscription: "Iscrizione sempre aperta"
+        open_fantamarket: "Fantamercato aperto"
+        fanta_market_cost: "Costo apertura fantamercato"
+        image: "Immagine"
+        division_limit: "Limite per girone"
+        is_apertura_tournament: "Torneo di apertura"
+        is_clausura_tournament: "Torneo di clausura"
+        is_warm_up_apertura: "Warm up di apertura"
+        is_warm_up_clausura: "Warm up di clausura"
+        mono_division: "Girone unico"
+        prize_on_goal_diff: "Premia differenza reti"
+        prize_on_scored_goals: "Premia goal segnati"
+        visible: "Visibile"
+        highlighted: "In evidenza"
+        fixed_divisions: "Gironi fissi?"
+        fixed_divisions_amount: "Numero di gironi fissi"
+        subphase: "E' una sottofase?"
+        parent_cup_id: "Coppa fase precedente"
+        qualified_from_parent_amount: "Qualificate per girone dalla coppa precedente"
+        cup_format_id: "Formato coppa"
+
+      cup_format:
+        title: "Titolo"
+        body: "Corpo"
+        image: "Immagine"
+
+      coin_prize:
+        name: "Nome"
+        description: "Descrizione"
+        short_description: "Descrizione breve"
+        coin_amount: "Quantità di coin"
+        image: "Immagine"
+        definite_article_s: "Determinativo singolare"
+        definite_article_p: "Determinativo plurale"
+        indefinite_article_s: "Indeterminativo"
+        indefinite_article_p: "Partitivo"
+
+      tutorial:
+        name: "Nome"
+        in_home: "In home"
+        in_cup_index: "Nell'indice delle coppe"
+        in_cup_show_free: "Nella pagina di una coppa free"
+        in_cup_show_paid: "Nella pagina di una coppa paid"
+        in_team_show: "Nella pagina della squadra"
+        in_team_new: "Nella pagina di creazione della squadra"
+        in_team_leaderboard: "Nella pagina della classifica"
+        in_profile: "Nel profilo dell'utente"
+        in_shop: "Nello shop"
+        visible: "Visibile?"
+        position: "Posizione per ordinamento"
+
+
+      tutorial_slide:
+        title: "Titolo"
+        text: "Testo"
+        image: "Immagine"
+
+      cup_team:
+        name: "Nome"
+        primary_color: "Colore primario"
+        secondary_color: "Colore secondario"
+        detail_color: "Colore dettaglio"
+
+      assigned_prize:
+        assigned_position: "Posizione premiata"
+        cup_prize: "Premio"
+        prize_global_id: "Premio"
+
+      range_prize:
+        from_position: "Dalla posizione"
+        to_position: "Alla posizione"
+        cup_prize: "Premio"
+        prize_global_id: "Premio"
+
+      team_department:
+        name: "Nome"
+        value: "Valore"
+
+      league_season:
+        starting_date: "Data di inizio (indicativa)"
+        ending_date: "Data di conclusione (indicativa)"
+        name: "Nome"
+
+      goal:
+        minute: "Minuto"
+        scorer_id: "Marcatore"
+        is_autogoal: "Autogoal?"
+
+      season_day:
+        number: "Numero di giornata"
+        date: "Data (indicativa)"
+        starting_date: "Chiusura formazioni"
+
+      day_game:
+        home_team: "Squadra di casa"
+        home_team_id: "Squadra di casa"
+        away_team: "Squadra in trasferta"
+        away_team_id: "Squadra in trasferta"
+        notes: "Note"
+        starting_datetime: "Inizio alle"
+
+      cup_prize:
+        name: "Nome"
+        description: "Descrizione"
+        short_description: "Descrizione breve"
+        value: "Valore"
+        image: "Immagine"
+        definite_article_s: "Determinativo singolare"
+        definite_article_p: "Determinativo plurale"
+        indefinite_article_s: "Indeterminativo"
+        indefinite_article_p: "Partitivo"
+
+      league:
+        name: "Nome"
+        nation: "Nazione"
+        image: "Immagine"
+
+      league_team:
+        name: "Nome"
+        image: "Immagine"
+
+      home_textbox:
+        name: "Nome"
+        title: "Titolo"
+        body: "Corpo"
+        image: "Immagine"
+
+  admin:
+    notices:
+      admin_feeds:
+        both: "AdminFeed creato, la richiesta sta venendo processata, saranno creati i feed e verranno inviate le notifiche agli utenti selezionati"
+        push_notification: "AdminFeed creato, la richiesta sta venendo processata, NON saranno creati i feed ma verranno inviate le notifiche agli utenti selezionati"
+        feed: "AdminFeed creato, la richiesta sta venendo processata, saranno creati i feed ma NON verranno inviate le notifiche agli utenti selezionati"
+        nothing: "AdminFeed creato, ma non sono stati selezionati nè feed nè notifica, what..?"
+      cup_feeds:
+        both: "CupFeed creato, la richiesta sta venendo processata, saranno creati i feed e verranno inviate le notifiche agli utenti non ancora iscritti."
+        push_notification: "CupFeed creato, la richiesta sta venendo processata, NON saranno creati i feed ma verranno inviate le notifiche agli utenti non ancora iscritti"
+        feed: "CupFeed creato, la richiesta sta venendo processata, saranno creati i feed ma NON verranno inviate le notifiche agli utenti non ancora iscritti"
+        nothing: "CupFeed creato, ma non sono stati selezionati nè feed nè notifica, what..?"
+
+    players:
+      show:
+        current_team: "Squadra attuale: %{team}"
+        birth_date: "Data di nascita: %{date}"
+        player_value: "Valore attuale: %{value}"
+      edit:
+        title: "Modifica %{name}"
+
+    team_departments:
+      edit:
+        title: "Modifica %{name}"
+      show:
+        no_scored_goals: "Questo reparto non ha ancora segnato."
+        no_suffered_goals: "Questo reparto non ha ancora subito goal."
+
+    league_seasons:
+      new:
+        title: "Crea stagione"
+
+    season_days:
+      show:
+        unassigned_teams_title: "Squadre non assegnate"
+        games_title: "Partite"
+
+    logged_home_pages:
+      name: "Nome"
+
+    home_slider_cups:
+      order: "Posizione"
+      cup_id: "Coppa"
+      cup: "Coppa"
+
+  devise:
+    mailer:
+      confirmation_instructions:
+        subject: "Confirmation instructions"
+      reset_password_instructions:
+        subject: "Istruzioni per il reset della password"
+      unlock_instructions:
+        subject: "Unlock instructions"
+
+  layouts:
+    admin:
+      sidebar:
+        real_football:
+          title: "Calcio reale"
+          leagues: "Leghe"
+          league_teams: "Squadre"
+          players: "Giocatori"
+          transfers: "Trasferimenti"
+        cups:
+          title: "Gestione Coppe"
+          cups: "Coppe"
+          cup_formats: "Formati Coppe"
+          cup_prizes: "Premi"
+          coin_prizes: "Premi in coin"
+        feeds:
+          title: "Feed"
+        tutorials:
+          title: "Tutorial"
+        home_pages:
+          title: "Homepage"
+        user_management:
+          title: "Gestione Utenti"
+          users: "Utenti"
+          prize_winners: "Gestione Premi"
+          downloads: "Download Dati"
+        coin_products:
+          title: "Pacchetti Coin"
+        coupons:
+          title: "Coupon"
+        colors:
+          title: "Colori"
+

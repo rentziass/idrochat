@@ -9,6 +9,10 @@ class Room < ApplicationRecord
   end
 
   def display_name(current_user)
-    name || (partecipants - [current_user]).map(&:username)
+    name || (partecipants - [current_user]).map(&:username).to_sentence
+  end
+
+  def display_title(current_user)
+    name || ("Chat con " << (partecipants - [current_user]).map(&:username).to_sentence)
   end
 end
